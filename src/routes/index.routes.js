@@ -1,0 +1,18 @@
+const express = require('express')
+const router = express.Router()
+const usuario = require('../controllers/usuario')
+const post = require('../controllers/post')
+
+//Rutas para los users
+router.get('/register', usuario.register)
+router.get('/login', usuario.login)
+router.get('/modify', usuario.modify)
+router.get('/delete', usuario.delete)
+
+//Rutas para los posts
+router.get('/create-post', post.create)
+router.get('/edit-post',post.edit)
+router.get('/like',post.like)
+
+
+module.exports = router
