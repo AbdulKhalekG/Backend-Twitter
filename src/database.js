@@ -6,9 +6,9 @@ const config={
     password:'123',
     database:'sql'
 };
-
+//funciones
 const pool = new Pool(config);
-//funcion crear usuario
+//funcion create user
 const createuser= async (req,res) =>{
 
     const{ nombre, username, correo, bio, direccion, birthday, clave} = req.body;
@@ -16,6 +16,7 @@ const createuser= async (req,res) =>{
     console.log(response);
 }
 
+//funcion modify user
 const modifyuser=async (req,res)=>{
 
     const{ nombre, username, correo, bio, direccion, birthday, clave} = req.body;
@@ -25,12 +26,20 @@ const modifyuser=async (req,res)=>{
 }
 
 
-//funcion crear post
+//funcion create post
 
 const createpost=async (req,res)=> {
     const{contenido, username, fecha, hora} = req.body
     const response = await pool.query('INSERT INTO post(contenido, username, fecha, hora) VALUES($1,$2,$3,$4)',[contenido,username,fecha,hora])
     console.log(response);
+}
+
+//funcion edit post
+const editpost=async(req,res)=>{
+
+    const{id_post, contenido, username, fecha, hora} = req.body
+    const response = await pool.query('UPDATE post SET contenido=$1, username=$2, fecha=$3, hora=$4 WHERE id_post=$5', [contenido,username,fecha,hora,id_post])
+    console.log(response)
 }
 
 
@@ -39,7 +48,8 @@ const createpost=async (req,res)=> {
 module.exports={
     createuser,
     modifyuser,
-    createpost
+    createpost,
+    editpost
 }
 
 

@@ -1,4 +1,4 @@
-const { createpost } = require("../database")
+const { createpost, editpost } = require("../database")
 
 const post={}
 
@@ -21,8 +21,13 @@ post.like=(req,res)=>{
 }
 
 post.edit=(req,res)=>{
-
+try {
+    editpost.editpost(req,res);
     res.send('edit post')
+}catch(e){
+    console.log(e)
+}
+  
 
 }
 
