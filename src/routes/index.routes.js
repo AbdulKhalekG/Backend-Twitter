@@ -7,7 +7,7 @@ const post = require('../controllers/post')
 router.get('/register', usuario.register)
 router.get('/login', usuario.login)
 router.get('/modify', usuario.modify)
-router.get('/delete', usuario.delete)
+
 
 //Rutas para los posts
 router.get('/create-post', post.create)
