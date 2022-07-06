@@ -1,26 +1,25 @@
-const crearusuario = require('../database')
+const createuser = require('../database')
 const modifyuser=require('../database')
+const searchuserid=require('../database')
+const searchusername=require('../database')
 
 //este constante esta vacia para las instancias
 const usuario = {}
 
 
-
 usuario.register= (req,res)=>{
     try{
-crearusuario.createuser(req,res);
+createuser.createuser(req,res);
     res.send('registry users')
 
 }catch(e){
     console.log(e);
 }
 
-}
-
-usuario.login= (req,res)=> {
-    res.send('login user')
 
 }
+
+
 
 usuario.modify= (req,res) => {
 try{
@@ -30,6 +29,8 @@ try{
     console.log(e)
 }
 
+};
+
 usuario.searchiduser=(req,res)=>{
     try{
         searchuserid.searchuserid(req,res);
@@ -37,6 +38,8 @@ usuario.searchiduser=(req,res)=>{
     }catch(e){
         console.log(e)
     }
+
+}
 
 usuario.searchuser=(req,res)=>{
     try{
@@ -47,10 +50,15 @@ usuario.searchuser=(req,res)=>{
     }
 }
 
+
+
+
+
+
+usuario.login= (req,res)=> {
+    res.send('login user')
+
 }
-
-} 
-
 
 
 

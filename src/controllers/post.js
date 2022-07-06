@@ -2,9 +2,11 @@
 const createpost=require('../database')
 const editpost=require('../database')
 const searchidpost=require('../database')
-
-
+const searchusernamepost=require('../database')
 const post={}
+
+
+
 //create post
 post.create=(req,res)=>{
     try{
@@ -12,17 +14,11 @@ post.create=(req,res)=>{
         res.send('create post')
     }catch(e){
         console.log(e)
-    }
-
-    
+    }  
 
 }
 //like
-post.like=(req,res)=>{
 
-    res.send('like')
-
-}
 //edit post
 post.edit=(req,res)=>{
 try {
@@ -31,7 +27,16 @@ try {
 }catch(e){
     console.log(e)
 }
-//search post
+
+}
+
+post.like=(req,res)=>{
+
+    res.send('like')
+
+}
+
+//search post id
 post.searchid=(req,res)=> {
 
     try{
@@ -52,6 +57,5 @@ post.searchuserpost=(req,res)=> {
 
 }
 
-}
 
 module.exports= post

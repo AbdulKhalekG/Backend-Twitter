@@ -1,4 +1,5 @@
 const { Pool } = require('pg');
+const usuario = require('./controllers/usuario');
 
 const config={
     user:'postgres',
@@ -19,8 +20,8 @@ const createuser= async (req,res) =>{
 //funcion modify user
 const modifyuser=async (req,res)=>{
 
-    const{ nombre, username, correo, bio, direccion, birthday, clave} = req.body;
-    const response = await pool.query('UPDATE usuarios SET nombre= $1 username= $2, correo=$3, bio =$4, direccion=$5, birthday=$6, clave=$7 WHERE id_usuario', [nombre, username, correo, bio, direccion, birthday,clave,id_usuario])
+    const{ nombre, username, correo, bio, direccion, birthday, clave,id_usuario} = req.body;
+    const response = await pool.query('UPDATE usuarios SET nombre= $1 username= $2, correo=$3, bio =$4, direccion=$5, birthday=$6, clave=$7 WHERE id_usuario=$8', [nombre, username, correo, bio, direccion, birthday,clave,id_usuario])
     console.log(response);
 
 }
