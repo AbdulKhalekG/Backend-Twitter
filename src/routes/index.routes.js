@@ -10,6 +10,8 @@ router.get('/modify', usuario.modify)
 
 //busqueda de usuarios por id
 router.get('/search-user/:id_usuario',usuario.searchiduser)
+//busqueda de username
+router.get('/search-username/:username',usuario.searchuser)
 
 
 

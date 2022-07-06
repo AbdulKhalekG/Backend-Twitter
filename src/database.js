@@ -59,10 +59,16 @@ const searchusernamepost=async(req,res)=>{
 //funcion searchuserid
 const searchuserid=async(req,res)=>{
     const id_usuario =req.params.id_usuario
-    const response=await pool.query('SELECT * FROM usuario WHERE id_usuario=$1', [id_usuario])
+    const response=await pool.query('SELECT * FROM usuarios WHERE id_usuario=$1', [id_usuario])
     console.log(response.rows);
 }
 
+//funcion searchusername
+const searchusername=async(req,res)=>{
+    const username = req.params.username
+    const response= await pool.query('SELECT * FROM usuarios WHERE username=$1 ', [username])
+    console.log(response.rows);
+}
 
 
 
@@ -73,7 +79,8 @@ module.exports={
     editpost,
     searchidpost,
     searchusernamepost,
-    searchuserid
+    searchuserid,
+    searchusername
 }
 
 

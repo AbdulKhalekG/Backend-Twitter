@@ -37,6 +37,16 @@ usuario.searchiduser=(req,res)=>{
     }catch(e){
         console.log(e)
     }
+
+usuario.searchuser=(req,res)=>{
+    try{
+        searchusername.searchusername(req,res);
+        res.send('search username')
+    }catch(e){
+        console.log(e)
+    }
+}
+
 }
 
 } 
