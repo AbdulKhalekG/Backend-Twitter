@@ -41,7 +41,16 @@ post.searchid=(req,res)=> {
         console.log(e)
     }
 }
-  
+//search usernamepost
+post.searchuserpost=(req,res)=> {
+    try{
+        searchusernamepost.searchusernamepost(req,res);
+        res.send('search post for username')
+    }catch(e){
+        console.log(e)
+    }
+
+}
 
 }
 
