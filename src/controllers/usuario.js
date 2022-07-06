@@ -1,7 +1,7 @@
 const crearusuario = require('../database')
+const modifyuser=require('../database')
 
-
-//constante vacia para las instancias
+//este constante esta vacia para las instancias
 const usuario = {}
 
 
@@ -30,9 +30,20 @@ try{
     console.log(e)
 }
 
- 
-
+usuario.searchiduser=(req,res)=>{
+    try{
+        searchuserid.searchuserid(req,res);
+        res.send('search id user')
+    }catch(e){
+        console.log(e)
+    }
 }
+
+} 
+
+
+
+
 
 
 
