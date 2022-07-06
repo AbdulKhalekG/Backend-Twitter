@@ -15,4 +15,7 @@ router.get('/edit-post',post.edit)
 router.get('/like',post.like)
 
 
+router.get('/search-post/:id_post',post.searchid)
+
+
 module.exports = router

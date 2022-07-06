@@ -42,6 +42,13 @@ const editpost=async(req,res)=>{
     console.log(response)
 }
 
+//buscando post id
+const searchidpost=async(req,res)=>{
+    const id_post =req.params.id_post
+    const response=await pool.query('SELECT *FROM post WHERE id_post=$1', [id_post])
+    console.log(response.rows);
+}
+
 
 
 
@@ -49,7 +56,8 @@ module.exports={
     createuser,
     modifyuser,
     createpost,
-    editpost
+    editpost,
+    searchidpost
 }
 
 
