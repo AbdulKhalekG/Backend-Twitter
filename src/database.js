@@ -101,7 +101,22 @@ const createlikeuser=async(req,res)=> {
     console.log(response);
 }
 
+//funcion searchretweetid
 
+const searchretweetid= async(req,res)=> {
+    const id_post =req.params.id_post
+    const response=await pool.query('SELECT *FROM retweet WHERE id_post=$1', [id_post])
+    console.log(response);
+    res.json(response.rowCount);
+}
+
+//funcion createretweet
+const createretweet=async(req,res)=> {
+    const {retweet_id,id_post} = req.body
+    const response = await pool.query('INSERT INTO retweet(retweet_id,id_post VALUES($1,2$', [retweet_id, id_post])
+    console.log(response)
+    res.json(response.row);
+}
 
 
 module.exports={
@@ -116,7 +131,9 @@ module.exports={
     likepost,
     likeuser,
     createlikepost,
-    createlikeuser
+    createlikeuser,
+    searchretweetid,
+    createretweet
 }
 
 
