@@ -71,13 +71,32 @@ const searchusername=async(req,res)=>{
     console.log(response.rows);
 }
 
-//funcion likepost
+//funcion likepost por posts
 const likepost=async(req,res)=> {
     const id_post=req.params.id_post
     const response=await pool.query('SELECT* FROM liked WHERE id_post=$1', [id_post])
     console.log(response.rowCount);
 
 }
+
+//funcion likeuser por usuario
+const likeuser=async(req,res)=> {
+    const id_usuario=req.params.id_usuario
+    const response= await pool.query('SELECT *FROM liked WHERE id_usuario=$1', [id_usuario])
+    console.log(response.rowCount)
+}
+
+//funcion createlikepost crear like para post
+
+const createlikepost=async(req,res)=> {
+    const{like_id,id_post} = req.body
+    const response = await pool.query('INSERT INTO liked(like_id,id_post) VALUES($1,$2)', [like_id,id_post])
+    console.log(response)
+}
+
+//funcion createlikeuser
+
+
 
 
 
@@ -90,7 +109,9 @@ module.exports={
     searchusernamepost,
     searchuserid,
     searchusername,
-    likepost
+    likepost,
+    likeuser,
+    createlikepost
 }
 
 

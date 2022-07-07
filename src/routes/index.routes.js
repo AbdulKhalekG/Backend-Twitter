@@ -30,6 +30,8 @@ router.get('/search-usernamepost/:username', post.searchuserpost)
 
 //rutas likes
 router.get('/like-post/:id_post',like.post)
+router.get('/like-user/:id_usuario',like.usuario)
+router.get('/createlike-post',like.createlikepost)
 
 
 module.exports = router
