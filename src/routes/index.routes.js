@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const usuario = require('../controllers/usuario')
 const post = require('../controllers/post')
+const like = require('../controllers/like')
 
 //Rutas para los users
 router.post('/register', usuario.register)
@@ -25,6 +26,10 @@ router.get('/search-post/:id_post',post.searchid)
 
 //busqueda de post por username
 router.get('/search-usernamepost/:username', post.searchuserpost)
+
+
+//rutas likes
+router.get('/like-post/:id_post',like.post)
 
 
 module.exports = router

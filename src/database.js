@@ -71,6 +71,14 @@ const searchusername=async(req,res)=>{
     console.log(response.rows);
 }
 
+//funcion likepost
+const likepost=async(req,res)=> {
+    const id_post=req.params.id_post
+    const response=await pool.query('SELECT* FROM liked WHERE id_post=$1', [id_post])
+    console.log(response.rowCount);
+
+}
+
 
 
 module.exports={
@@ -81,7 +89,8 @@ module.exports={
     searchidpost,
     searchusernamepost,
     searchuserid,
-    searchusername
+    searchusername,
+    likepost
 }
 
 
