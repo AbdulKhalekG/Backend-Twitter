@@ -113,9 +113,17 @@ const searchretweetid= async(req,res)=> {
 //funcion createretweet
 const createretweet=async(req,res)=> {
     const {retweet_id,id_post} = req.body
-    const response = await pool.query('INSERT INTO retweet(retweet_id,id_post VALUES($1,2$', [retweet_id, id_post])
+    const response = await pool.query('INSERT INTO retweet(retweet_id,id_post VALUES($1,2$)', [retweet_id, id_post])
     console.log(response)
     res.json(response.row);
+}
+
+//funcion createfollowers
+const createfollower=async(req,res)=> {
+    const {follow_id, id_user1} = req.body
+    const response = await pool.query('INSERT  INTO follow(follow_id,id_user1 VALUES(1$,2$)', [follow_id,id_user1])
+    console.log(response)
+    res.json(response.rowCount);
 }
 
 
@@ -133,7 +141,8 @@ module.exports={
     createlikepost,
     createlikeuser,
     searchretweetid,
-    createretweet
+    createretweet,
+    createfollower
 }
 
 

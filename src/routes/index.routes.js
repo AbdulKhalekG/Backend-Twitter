@@ -4,6 +4,7 @@ const usuario = require('../controllers/usuario')
 const post = require('../controllers/post')
 const like = require('../controllers/like')
 const retweet=require('../controllers/retweet')
+const follow=require('../controllers/follow')
 
 //Rutas para los users
 router.post('/register', usuario.register)
@@ -40,6 +41,9 @@ router.post('/createlike-user',like.createlikeuser)
 //retweets
 router.get('/retweet-post/:id_post',retweet.post)
 router.post('/retweet-create', retweet.create)
+
+//follows
+router.post('/follower-create',follow.createfollower)
 
 
 module.exports = router
