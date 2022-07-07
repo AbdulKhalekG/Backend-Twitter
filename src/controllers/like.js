@@ -30,4 +30,13 @@ like.createlikepost=(req,res)=> {
     }
 }
 
+like.createlikeuser=(req,res)=> {
+    try{
+        likes.createlikeuser(req,res)
+        res.json(response)
+    }catch(e){
+        console.log(e);
+    }
+}
+
 module.exports = like;

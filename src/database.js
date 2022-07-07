@@ -95,7 +95,11 @@ const createlikepost=async(req,res)=> {
 }
 
 //funcion createlikeuser
-
+const createlikeuser=async(req,res)=> {
+    const{like_id,id_post} = req.body
+    const response = await pool.query('INSERT INTO liked(like_id,id_usuario VALUES($1,$2)', [like_id,id_usuario])
+    console.log(response);
+}
 
 
 
@@ -111,7 +115,8 @@ module.exports={
     searchusername,
     likepost,
     likeuser,
-    createlikepost
+    createlikepost,
+    createlikeuser
 }
 
 
