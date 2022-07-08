@@ -42,4 +42,12 @@ follow.deletefollow=(req,res)=>{
     }
 }
 
+follow.deletefollowing=(req,res)=>{
+    try{
+        follower.deletefollowing(req,res)
+    }catch(e){
+        console.log(e)
+    }
+}
+
 module.exports = follow;

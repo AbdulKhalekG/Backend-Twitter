@@ -177,6 +177,14 @@ const deletefollow=async(req,res)=>{
 
 }
 
+//funcion deletefollowing
+const deletefollowing=async(req,res)=>{
+    const id_user2 =req.params.id_user2
+    const response = await pool.query('DELETE * FROM follow WHERE id_user2=$2', [id_user2])
+    console.log(response)
+    res.json(response.rows);
+}
+
 
 
 module.exports={
@@ -200,7 +208,8 @@ module.exports={
     followeruser,
     deletelikeuser,
     deletelikepost,
-    deletefollow
+    deletefollow,
+    deletefollowing
 }
 
 
