@@ -33,4 +33,13 @@ follow.getfollow=(req,res)=>{
             console.log(e)
         }
     }
+
+follow.deletefollow=(req,res)=>{
+    try{
+        follower.deletefollow(req,res)
+    }catch(e){
+        console.log(e)
+    }
+}
+
 module.exports = follow;

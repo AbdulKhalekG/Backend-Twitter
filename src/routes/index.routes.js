@@ -49,6 +49,7 @@ router.post('/follower-create',follow.createfollower)
 router.post('/following-create',follow.createfollowing)
 router.get('/search-follow/:id_user1',follow.getfollow)
 router.get('/search-following/:id_user2',follow.getfollowing)
+router.delete('/delete-follow/:id_user1',follow.deletefollow)
 
 
 module.exports = router
