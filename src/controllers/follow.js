@@ -26,4 +26,11 @@ follow.getfollow=(req,res)=>{
     }
 }
 
+    follow.getfollowing=(req,res)=>{
+        try{
+            follower.getfollowing(req,res)
+        }catch(e){
+            console.log(e)
+        }
+    }
 module.exports = follow;

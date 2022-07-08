@@ -142,6 +142,14 @@ const followeriduser=async(req,res)=>{
     res.json(response.rowCount);
 }
 
+//funcion followeruser
+const followeruser=async(req,res)=>{
+    const id_user2=req.params.id_user2
+    const response=await pool.query('SELECT * FROM follow WHERE id_user2=$1', [id_user2])
+    console.log(response)
+    res.json(response.rowCount);
+}
+
 
 module.exports={
     createuser,
@@ -160,7 +168,8 @@ module.exports={
     createretweet,
     createfollower,
     createfollowing,
-    followeriduser
+    followeriduser,
+    followeruser
 }
 
 
