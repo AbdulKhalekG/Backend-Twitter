@@ -39,4 +39,12 @@ like.createlikeuser=(req,res)=> {
     }
 }
 
+like.deletelikeuser=(req,res)=> {
+    try{
+        likes.deletelikeuser(req,res)
+    }catch(e){
+        console.log(e)
+    }
+}
+
 module.exports = like;

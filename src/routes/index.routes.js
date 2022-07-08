@@ -36,6 +36,7 @@ router.get('/like-post/:id_post',like.post)
 router.get('/like-user/:id_usuario',like.usuario)
 router.post('/createlike-post',like.createlikepost)
 router.post('/createlike-user',like.createlikeuser)
+router.delete('/deletelike-user/:id_post',like.deletelikeuser)
 
 
 //retweets
