@@ -45,6 +45,7 @@ router.post('/retweet-create', retweet.create)
 //follows
 router.post('/follower-create',follow.createfollower)
 router.post('/following-create',follow.createfollowing)
+router.get('/search-follow/:id_user1',follow.getfollow)
 
 
 module.exports = router

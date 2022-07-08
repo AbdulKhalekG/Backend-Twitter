@@ -18,4 +18,12 @@ follow.createfollowing=(req,res)=> {
 
 }
 
+follow.getfollow=(req,res)=>{
+    try{
+        follower.getfollow(req,res)
+    }catch(e){
+        console.log(e)
+    }
+}
+
 module.exports = follow;
