@@ -110,6 +110,15 @@ const deletelikeuser=async(req,res)=>{
 
 }
 
+//funcion deletelikepost
+const deletelikepost=async(req,res)=>{
+    const id_post =req.params.id_post
+    const response= await pool.query('DELETE * FROM liked WHERE id_post=$1', [id_post])
+    console.log(response)
+    res.json(response.rows);
+
+}
+
 //funcion searchretweetid
 
 const searchretweetid= async(req,res)=> {
@@ -181,7 +190,8 @@ module.exports={
     createfollowing,
     followeriduser,
     followeruser,
-    deletelikeuser
+    deletelikeuser,
+    deletelikepost
 }
 
 
