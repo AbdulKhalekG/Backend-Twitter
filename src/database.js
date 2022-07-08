@@ -126,6 +126,14 @@ const createfollower=async(req,res)=> {
     res.json(response.rowCount);
 }
 
+//funcion createfollowing
+const createfollowing=async(req,res)=> {
+    const {follow_id,id_user2} = req.body
+    const response = await pool.query('INSERT INTO follow(follow_id,id_user2) VALUES($1,$2)', [follow_id,id_user2])
+    console.log(response)
+    res.json(response.row)
+}
+
 
 module.exports={
     createuser,
@@ -142,7 +150,8 @@ module.exports={
     createlikeuser,
     searchretweetid,
     createretweet,
-    createfollower
+    createfollower,
+    createfollowing
 }
 
 
