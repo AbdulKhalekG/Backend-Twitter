@@ -2,6 +2,7 @@ const createuser = require('../database')
 const modifyuser=require('../database')
 const searchuserid=require('../database')
 const searchusername=require('../database')
+const passport=require('passport')
 
 //este constante esta vacia para las instancias
 const usuario = {}

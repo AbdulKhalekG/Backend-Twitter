@@ -1,5 +1,6 @@
 const express = require ('express')
 const {route}= require('./routes/index.routes')
+const passport = require('passport')
 
 const app = express()
 
@@ -8,6 +9,9 @@ const app = express()
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+app.use(passport.initialize())
+app.use(passport.session)
 
 // ROUTES para utilizar las rutas
 

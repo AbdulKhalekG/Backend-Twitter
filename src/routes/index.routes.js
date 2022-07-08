@@ -5,6 +5,12 @@ const post = require('../controllers/post')
 const like = require('../controllers/like')
 const retweet=require('../controllers/retweet')
 const follow=require('../controllers/follow')
+const passport=require('passport')
+
+// const passport
+// const login
+
+
 
 //Rutas para los users
 router.post('/register', usuario.register)
@@ -52,5 +58,17 @@ router.get('/search-following/:id_user2',follow.getfollowing)
 router.delete('/delete-follow/:id_user1',follow.deletefollow)
 router.delete('/delete-following/:id_user2',follow.deletefollowing)
 
+
+
+//registry and login
+
+router.post('/registry', usuario.register)
+router.post('/login',(req,res)=>{
+    passport.Authenticator('home.location',{
+        succesRedirect:'/profile',
+        failureRedirect:'/login',
+        failureFlash:true
+    })
+})
 
 module.exports = router
