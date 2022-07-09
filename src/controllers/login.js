@@ -1,15 +1,9 @@
-const login= {}
-const passport= require('passport')
+login= {}
+
 
 login.authentication=(req,res)=>{
-    passport.authenticate('home.location'),{
-        
+    res.send('login')
 
-
-        succesRedirect: '/perfil',
-        failureRedirect:'/login',
-        failureFlash:true
-
-    }
-    res.send('received')
 }
+
+module.exports= login

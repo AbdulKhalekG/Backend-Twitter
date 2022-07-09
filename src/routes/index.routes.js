@@ -5,29 +5,28 @@ const post = require('../controllers/post')
 const like = require('../controllers/like')
 const retweet=require('../controllers/retweet')
 const follow=require('../controllers/follow')
-const passport=require('passport')
+const login=require('../controllers/login')
 
-// const passport
-// const login
+
 
 
 
 //Rutas para los users
-router.post('/register', usuario.register)
-router.get('/login', usuario.login)
-router.put('/modify/:id', usuario.modify)
+router.post('/register', usuario.register) //
+router.get('/login', login.authentication) //
+router.put('/modify/:id', usuario.modify) //
 
 //busqueda de usuarios por id
-router.get('/search-user/:id_usuario',usuario.searchiduser)
+router.get('/search-user/:id_usuario',usuario.searchiduser) //
 
 //busqueda de username
-router.get('/search-username/:username',usuario.searchuser)
+router.get('/search-username/:username',usuario.searchuser) //
 
 
 
 //Rutas para los posts
-router.post('/create-post', post.create)
-router.put('/edit-post',post.edit)
+router.post('/create-post', post.create) //
+router.put('/edit-post',post.edit) //
 router.get('/like',post.like)
 
 //busqueda de post por id
@@ -60,15 +59,5 @@ router.delete('/delete-following/:id_user2',follow.deletefollowing)
 
 
 
-//registry and login
-
-router.post('/registry', usuario.register)
-router.post('/login',(req,res)=>{
-    passport.Authenticator('home.location',{
-        succesRedirect:'/profile',
-        failureRedirect:'/login',
-        failureFlash:true
-    })
-})
 
 module.exports = router
