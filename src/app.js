@@ -8,8 +8,8 @@ const PassportLocal=require('passport-local').strategy;
 
 const app = express()
 
-
-// middlewares hace referencia a unas funciones que se ejecutan antes de llegar a las rutas
+//Middleware
+//hace referencia a unas funciones que se ejecutan antes de llegar a las rutas
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
