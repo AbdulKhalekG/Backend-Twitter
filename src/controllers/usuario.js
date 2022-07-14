@@ -56,10 +56,7 @@ usuario.searchuser=(req,res)=>{
 
 
 
-usuario.login= (req,res)=> {
-   
 
-}
 
 
 
