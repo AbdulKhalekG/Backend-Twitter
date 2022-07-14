@@ -3,19 +3,17 @@ const passport = require('passport');
 const { Strategy } = require('passport-local');
 const { Pool } = require('pg');
 const helpers =require('./helpers')
-const conexion = 'postgres://faefrtbvusiifx:5183a7d5b0f78a919654a538803702f9df706a162dad8a790cf5a5cb9796490c@ec2-54-152-28-9.compute-1.amazonaws.com:5432/d54loslgcri427'
 
 
-//const config={
-  //user:'faefrtbvusiifx',
-  //host:'ec2-54-152-28-9.compute-1.amazonaws.com',
-  //password:'5183a7d5b0f78a919654a538803702f9df706a162dad8a790cf5a5cb9796490c',
-  //database:'d54loslgcri427'
-//}; 
+
+const config={
+  user:'faefrtbvusiifx',
+  host:'ec2-54-152-28-9.compute-1.amazonaws.com',
+  password:'5183a7d5b0f78a919654a538803702f9df706a162dad8a790cf5a5cb9796490c',
+  database:'d54loslgcri427'
+};
   
-  const pool = new Pool({
-    conexion
-  }); 
+  const pool = new Pool(config); 
   
   const LocalStrategy = new Strategy(
   {
