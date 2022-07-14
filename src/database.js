@@ -2,10 +2,10 @@ const { Pool } = require('pg')
 const  helpers  = require('./helpers')
 
 const config={
-    user:'postgres',
-    host:'localhost',
-    password:'123',
-    database:'sql'
+    user:'faefrtbvusiifx',
+    host:'ec2-54-152-28-9.compute-1.amazonaws.com',
+    password:'5183a7d5b0f78a919654a538803702f9df706a162dad8a790cf5a5cb9796490c',
+    database:'d54loslgcri427'
 };
 //funciones
 const pool = new Pool(config);
