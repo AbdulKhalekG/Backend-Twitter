@@ -1,32 +1,34 @@
 const express = require ('express')
-const {route}= require('./routes/index.routes')
+const session = require ('express-session')
+const flash = require('express-flash')
 const passport = require('passport')
-const cookieParser= require("cookie-parser")
-const PassportLocal=require('passport-local').strategy;
-
-
-
+const {Strategy} =require('passport-local')
+const { LocalStrategy } = require('./strategies')
 const app = express()
 
-//Middleware
-//hace referencia a unas funciones que se ejecutan antes de llegar a las rutas
 
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-
-
-app.use(cookieParser('jajaja'));
+//middlewares
 app.use(session({
-    secret: 'jajaja',
-    resave:true,
-    saveUniunitialized:true
-}));
+    secret:'jajaja',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(flash())
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
+passport.use(LocalStrategy);
+passport.serializeUser((user, done) => {
+    done(null, JSON.stringify(user));
+  });
+  
+  passport.deserializeUser((user, done) => {
+    done(null, JSON.parse(user));
+  });
 
-app.use(passport.initialize());
-app.use(passport.session);
-
-// ROUTES para utilizar las rutas
+  app.use(passport.initialize())
+    app.use(passport.session());
+//router
 
 app.use( require('./routes/index.routes'))
 
@@ -34,28 +36,5 @@ app.listen(5000, ()=>{
     console.log('Servidor a la espera de conexiones')
 })
 
-passport.use(new PassportLocal(function(username,password,done){
-
-    if(username==="jose"&& password==="123")
-    return done(null,{id:1,name:"jairo"})
-    done(null,false)
-}));
-
-//serialization
-
-passport.serializedUser(function(user,done){
-    done(null,user.id);
-})
-
-//deserialization
-
-passport.deserializeUser(function(id,done){
-    done(null,{id: 1, name:"jairo"});
-})
-
-app.post("/login",passport.authenticate('local',{
-    successRedirect:"/",
-    failureRedirect:"login"
-}))
 
 

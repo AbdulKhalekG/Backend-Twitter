@@ -11,7 +11,7 @@ const post={}
 post.create=(req,res)=>{
     try{
         createpost.createpost(req,res);
-        res.send('create post')
+       
     }catch(e){
         console.log(e)
     }  
@@ -23,16 +23,10 @@ post.create=(req,res)=>{
 post.edit=(req,res)=>{
 try {
     editpost.editpost(req,res);
-    res.send('edit post')
+    
 }catch(e){
     console.log(e)
 }
-
-}
-
-post.like=(req,res)=>{
-
-    res.send('like')
 
 }
 
@@ -41,7 +35,7 @@ post.searchid=(req,res)=> {
 
     try{
         searchidpost.searchidpost(req,res);
-        res.send('search post')
+        
     }catch(e){
         console.log(e)
     }
@@ -50,7 +44,7 @@ post.searchid=(req,res)=> {
 post.searchuserpost=(req,res)=> {
     try{
         searchusernamepost.searchusernamepost(req,res);
-        res.send('search post for username')
+        
     }catch(e){
         console.log(e)
     }
