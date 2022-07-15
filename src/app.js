@@ -33,8 +33,8 @@ passport.serializeUser((user, done) => {
 app.use( require('./routes/index.routes'))
 
 
-const port =process.env.PORT || 5000;
-app.listen(port, ()=>{
+const Port =process.env.PORT || 5000;
+app.listen(Port, ()=>{
     console.log('Servidor a la espera de conexiones')
 })
 
